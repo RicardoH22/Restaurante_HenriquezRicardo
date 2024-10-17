@@ -1,8 +1,95 @@
+import { Nav } from "react-bootstrap";
+import miLogo from "../../../assets/img/image.png";
+import { NavLink } from "react-router-dom";
+
 export const Cabecera = () => {
   return (
     <>
-      Hola soy la cabecera <br/>
-      El menu de arriba...
+      <nav
+        className="navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div className="container-fluid">
+          <NavLink className="navbar-brand" to="/">
+            <img src={miLogo} alt="El logo" />
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Navegación de conmutación"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to="/">
+                  Inicio
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="*">
+                  Restaurante
+                </NavLink>
+              </li>
+
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menús
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <NavLink className="dropdown-item" to="/mencre">
+                      Registrar menu
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/menlis">
+                      Listar menu
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/menadmin">
+                      Administar menu
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/menuacer">
+                  Acerca de
+                </NavLink>
+              </li>
+            </ul>
+            <form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Búsqueda"
+                aria-label="Búsqueda"
+              />
+              <button className="btn btn-outline-light" type="submit">
+                Búsqueda
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </>
   );
 };
